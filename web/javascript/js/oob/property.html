@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var person = {}
+			Object.defineProperties(person ,{
+				'username':{
+					value:'king',
+					writable:true,
+					enumerable:true,
+					cionfigurable:true,
+					
+				},
+				age:{
+					value:12,
+					writable:false,/*其他2个特性默认为false*/
+					
+				}
+				
+			});
+			person.addr='成都';/*直接添加的对象属性，三个特性默认值都是true*/
+			console.log(person.username);
+			console.log(person['age']);
+			/*查看属性的特性*/
+			console.log(Object.getOwnPropertyDescriptor(person,'username'));
+			console.log(Object.getOwnPropertyDescriptor(person,'age'));
+			console.log(Object.getOwnPropertyDescriptor(person,'addr'));
+			
+			/*查询对象的原型类型*/
+			var obj={};
+			console.log(obj.toString());
+			var arr= new Array();
+			console.log(Object.prototype.toString.call(arr));
+			var date= new Date();
+			console.log(Object.prototype.toString.call(date));
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

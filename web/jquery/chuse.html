@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script  type="text/javascript"  src="js/jquery-3.2.1.js"></script>
+		<style>
+			body{
+				text-align: center;}
+			*{
+				margin: 0px;
+				padding: 0px;
+				cursor: pointer;
+			}
+			li{
+				list-style: none;
+				clear: both;
+			}
+			div{
+				margin: 0px auto;
+				width: 100%;
+				clear: both;
+				text-align: center;
+			}
+			span{
+				width: 200px;
+				height: 40px;
+				display: block;
+				border: 1px solid #000;float: left;text-align: center;vertical-align: middle;
+				
+			}
+			.jingshan{
+				background-color:red ;
+			}
+			
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li id="li_1"><span class="class1">class1</span><span class="class1">class1</span></li>
+				<li id="li_2"><span id="id1" >id1</span><span id="id2">id2</span></li>
+				<li id="li_3"><span >normal</span><span >normal</span></li>
+				<li id="li_4"><span><a href="www.baidu.com">百度</a></span><span> <a href="www.sina.com">新浪</a></span></li>
+			</ul>
+		/div>
+		<br />
+		<div >
+			<input type="text" name="in_1" value="value1"/>
+			<input type="text" name="in_2" value="value2"/>
+			<input type="text" name="in_3" value="value3"/>
+			<input type="text" name="in_4" value="value4"/>
+			
+		</div>
+		<h2>按钮操作</h2>
+		<span id='sp1'>ID1选择器</span>
+		<span id='sp2'>class选择器</span>
+		<span id='sp3'>a选择器</span>
+		<span id='sp4'>span选择器</span>
+		<span id='sp5'>组合选择器</span>
+		<span id='sp6'>并列选择器</span>
+		<span id='sp7'>家族选择器</span>
+		<span id='sp8'>父子选择器</span>
+		<span id='sp9'>has选择器</span>
+		<span id='sp10'>name='in_1'选择器</span>
+		<span id='sp11'>name$='_3'选择器</span>
+		<span id='sp12'>name*='n_'选择器</span>
+		
+		
+		
+	</body>
+	<script>
+		$(function()
+		{	//ID选择器
+			$("#sp1").click(function()
+			{
+				$("#id1").toggleClass('jingshan');
+			});
+			//class选择器
+			$("#sp2").click(function()
+			{
+				$(".class1").toggleClass('jingshan');
+			});
+			//元素选择器
+			$("#sp3").click(function()
+			{
+				$("a").toggleClass('jingshan');
+			});
+			$("#sp4").click(function()
+			{
+				$("span").toggleClass('jingshan');
+			});
+			//组合选择器
+			$("#sp5").click(function()
+			{
+				$("#id2,#id1").toggleClass('jingshan');
+			});
+			//并列选择器
+			$("#sp6").click(function()
+			{
+				$("#id2,#id2,.class1").toggleClass('jingshan');
+			});
+			//家族选择器
+			$("#sp7").click(function()
+			{
+				$("ul span").toggleClass('jingshan');
+			});
+			//父子选择器
+			$("#sp8").click(function()
+			{
+				$("#li_1>span").toggleClass('jingshan');
+			});
+			//has 函数
+			$("#sp9").click(function()
+			{
+				$("#li_4 span:has(a)").toggleClass('jingshan');
+			});
+			//属性选择方式
+			$("#sp10").click(function()
+			{
+				$("input[name='in_1']").toggleClass('jingshan');
+			});
+			$("#sp11").click(function()
+			{
+				$("input[name$='_3']").toggleClass('jingshan');
+			});
+			$("#sp12").click(function()
+			{
+				$("input[name*='n_']").toggleClass('jingshan');
+			});
+		
+		
+		
+		})
+		
+		
+		
+	</script>
+</html>

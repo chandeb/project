@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			sum=0;
+			for(var i=1;i<=100;i++){
+				if(i%2==1)
+				{sum += i;}
+			}
+			document.write('1-100之间的奇数和：'+sum+'<hr/>');
+			
+		</script>
+		<!--百钱买白鸡。公5/只，母3/只，小1/3只-->
+		<script type="text/javascript">
+			for(var i=0;i<=20;i++){
+				for(var j=0;j<=33;j++){
+					for(var k=0;k<=100;k++){
+						if(i+j+k==100&&5*i+3*j+k/3==100){
+							document.write('公鸡：'+i+'只   '+'母鸡:'+j+'只   '+'小鸡：'+k+'只<hr/>   ');
+						}
+					}
+				}
+			}
+			document.write('<hr color="red"/>');
+			for(var i=0;i<=20;i++)
+			{
+				for(var j=0;j<=33;j++)
+				{
+					z=100-i-j;
+					if((z%3==0)&&(5*i+3*j+z/3==100))
+					{
+						document.write('公鸡：'+i+'只   '+'母鸡:'+j+'只   '+'小鸡：'+k+'只<hr/>');
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

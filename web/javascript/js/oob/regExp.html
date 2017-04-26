@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var re=new RegExp("javascript");
+//			var patt=/javascript/;
+//			var res1=re.test('this is javascript course');
+//			var res2=patt.test('this is javascript course');
+//			console.log(res1)
+//			console.log(res2)
+//			console.log(res3=/javascript/.test('this is javascript course'))
+//		
+//			console.log(res4=/\w/.test('aad8866_AFHU__'));
+//			var str1='this is a course';
+//			ress=str1.match(/is/ig);//匹配所找到的全部子字符串 数组
+//			console.log(ress);
+//			console.log(str1.search(/o/));//索引值  11
+//			var str2=str1.replace(/a/,'python');
+//			console.log(str2);//this is python course
+			
+//			exec返回一个数组
+//			res=/is/.exec('this is javascirpt course');
+//			console.log(res);
+//			console.log(res[0]);
+			
+			var str='this is maizi javascript';
+			var pat=/i/ig;
+			var myArr;
+			while((myArr=pat.exec(str))!=null){
+				var mes='找到了'+myArr[0]+'!';
+				console.log(myArr)
+				mes+='下一个匹配从'+pat.lastIndex;
+				console.log(mes);
+			}
+			
+			
+		
+		
+		
+		
+		
+		
+		
+		</script>
+		
+	</body>
+</html>

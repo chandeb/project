@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<!--使用javascript验证:
+		手机号是否符合格式，
+		验证姓名长度：2-10个字，
+		密码：密码以字母开头，长度在6~18之间，只能包含字符、数字和下划线，备注选填。-->
+	<!--https://c.runoob.com/codedemo/2873表单正则验证-->
+	<head>
+		<meta charset="utf-8" />
+		<link rel = "stylesheet" href="table.css"/>
+		<title>注册表信息</title>
+	</head>
+	<body>
+		<div>
+			<table width="720" height="50" align="center" frame="box" rules="all">
+				<tr class="tr_css" >
+					<th class="th_css">手机号:</td>
+					<td><input id="phonenum" type="text" ></td>
+					<td>必填，用户手机号</td>
+				</tr>
+				<tr class="tr_css">
+					<th>姓名：</td>
+					<td><input id="name" type="text" ></td>
+					<td>必填，用户真实名字</td>
+				</tr>
+				<tr class="tr_css">
+					<th>密码：</td>
+					<td><input id="password" type="text" ></td>
+					<td>必填，以字母开头，长度在6到18之间只能包含字母、数字和下划线</td>
+				</tr>
+				<tr class="tr_css">
+					<th>确认密码：</td>
+					<td><input id="re_password" type="text" ></td>
+					<td>必填</td>
+				</tr class="tr_css">
+				<tr>
+					<th>备注：</td>
+					<td><input id="add" type="text" ></td>
+					<td>可以随便写点什么</td>
+				</tr>
+				<tr>
+					<td height="50" align="center" colspan="3"><button type="button" onclick="myFunction()">确定</button></td>
+				</tr>
+				
+				
+			</table>
+			
+		</div>
+		
+		<script>
+			/*校验电话码格式 */
+		function istelcode(str) 
+		{
+			var reg= /^((13[0-9])|(15[^4,\D])|(18[0,2,5-9]))\d{8}$/;
+			return reg.test(str);/*返回值为布尔类型*/
+		}
+			/*校验是否中文名称组成 */
+		function ischina(str) 
+		{
+			var reg=/^[\u4E00-\u9FA5]{2,10}$/;   /*定义验证表达式,验证姓名长度：2-10个字*/
+			return reg.test(str);     /*进行验证*/
+			}
+		/*校验校验密码字符组成 */
+		function ispassword(str)
+		{
+			var reg=/^[a-zA-Z]\w{6,18}$/;  /*密码以字母开头，长度在6~18之间，只能包含字符、数字和下划线*/
+			return reg.test(str);     /*进行验证*/
+			
+		}
+		
+		
+		function myFunction() 
+		{
+		    	if(!istelcode(document.getElementById("phonenum").value))
+		    	{
+				alert("电话号码格式不对");
+	//			return false;
+				}
+				if(!ischina(document.getElementById("name").value))
+		    	{
+				alert("姓名格式不对");
+	//			return false;
+				}
+				if(!ispassword(document.getElementById("password").value))
+		    	{
+				alert("密码格式不对");
+	//			return false;
+				}
+		    	if(document.getElementById("re_password").value != document.getElementById("password").value)
+		    	{
+				alert("确认密码内容错误");
+	//			return false;
+				}
+//		    	return false;
+			
+				else alert("格式正确!");
+		}
+		</script>
+	</body>
+</html>
+
+

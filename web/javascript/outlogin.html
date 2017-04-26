@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出式登录框</title>
+		<!--<link rel = "stylesheet" href="outlogin.css"/>-->
+	</head>
+	<body>
+		<div id=win class="login"
+			style="display:none; 
+			background-image:url(login.PNG);
+			background-size:450px 200px;
+			POSITION:absolute; left:50%; top:50%; width:470px; height:200px; 
+			margin-left:-300px; margin-top:-200px; border:1px solid #888;
+			text-align:center"
+			 ><br>
+		 	
+		 	<form action="doaction.php" method="post" onsubmit="return check()" >
+		 		
+		 		<br />
+		 		用户名:<input align="center" type="text" name="username" id="username"  />请输入合法邮箱地址<br />
+		 		<br />
+		 		密码：<input align="center"  type="text" name="password" id="password" />6到10位字母、数字<br />
+		 		<br />
+		 		<input type="submit" value="注册" />
+		 		<br />
+		 		<br />
+		 	</form>
+		 	<a href="javascript:closeLogin();">取消</a>
+		</div>
+		<script type="text/javascript">
+		function openLogin(){
+		   document.getElementById("win").style.display="";
+		}
+		function closeLogin(){
+		   document.getElementById("win").style.display="none";
+		}
+		function check(){
+			var username=document.getElementById("username").value;
+			var mypassword=document.getElementById("password").value;
+			
+			if(!(/[\w,-]+(\.([\w,-])+)*@[\w,-]+\.[\w-]+/.test(username)))
+			{
+				alert('邮箱格式错误！')
+			}
+			if(!(/^\w{6,10}$/.test(mypassword)))
+			{
+				alert('密码格式错误！')
+			}
+}
+		</script>
+		<a href="javascript:openLogin();">登录</a>
+	</body>
+</html>

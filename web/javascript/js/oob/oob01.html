@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//对象字面量创建对象
+			var obj={job:'CEO',age:18,'first-name':'Dav'}
+			//new Object()   javascirpt的三种对象类型
+			var obj=new Object();//创建空对象
+			var arr=new Array();//空数组[]
+			var date=new Date();//日期时间对象
+			//构造函数创建对象
+			function Text1(num1,num2){
+				return num1+num2;
+				}
+			var obj2=new Text1(1,3);
+			
+			//Object.creat({name:value})创建对象
+			var obj3=Object.create({'x':6})
+			//创建无原型的空对象
+			var obj4=Object.create(null)
+			//创建普通的空对象
+			var obj4=Object.create(Object.prototype)
+			
+			
+			var person={
+				name:'king',
+				age:16,
+				sex:'男',
+				salary:'6k',
+				addr:'泸州'
+			}
+			console.log('用户名：'+person.name+"\n"+'性别：'+person.sex)
+			var key='salary';
+			console.log(person[key]);
+			
+			function personinfo(name,age,addr,day){
+				this.name=name;
+				this.age=age;
+				this.addr=addr;
+				this.day=day;
+			}
+			var person1=new personinfo('kong',24,'成都',23);
+			//查询属性
+			console.log(person1.name)
+			console.log(person1['addr'])
+			//修改属性
+			person1.addr='昆明';
+			console.log(person1['addr']+'---'+person1.day)
+			
+//			deete person.day
+//			console.log(person1.day)
+//          添加属性
+			person1.guoji=function(){
+				return 'china';
+			}
+			
+			//for in 遍历属性
+			for(var i in person1){
+				console.log(i+'\n');
+			}
+//			访问属性方法
+			console.log(person1.guoji())
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+
+	</body>
+</html>

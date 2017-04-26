@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--<style type="text/css"></style>-->
+		<link rel = "stylesheet" href="qipan.css"/>
+		<title>棋盘</title>
+	</head>
+	<body >
+		<div class='div1'>
+			<script >
+			document.write("<div>");
+			for(var i=1;i<=8;i++)
+				{	
+//					
+					for(var j=1;j<=8;j++)
+					{
+						if (((i%2==0)&&(j%2==0))||((i%2==1)&&(j%2==1)))
+						{
+							document.write("<div class='black_css'></div>");
+						} 
+						else{
+							document.write("<div class='white_css'></div>");
+						}
+								
+					}
+	//				
+				}
+			document.write('</div>');	
+			</script>
+		</div>
+	</body>
+</html>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<!--</head>
+	<body >
+		<div class='div1'>
+			<script >
+			document.write("<div>");
+			for(var i=1;i<=8;i++)
+				{	
+//					
+					for(var j=1;j<=8;j++)
+					{
+						if (((i%2==0)&&(j%2==0))||((i%2==1)&&(j%2==1)))
+						{
+							document.write("<div class='black_css'></div>");
+						} 
+						else{
+							document.write("<div class='white_css'></div>");
+						}
+								
+					}
+	//				
+				}
+			document.write('</div>');	
+			</script>
+		</div>
+	</body>
+</html>-->
+	
+	<!--<body >-->
+		<!--<table width="401"height="401"border="1" cellpadding="0" bordercolor="grry" align="center"  frame="box"rules="all">
+			<script type="text/javascript">
+				for(var i=1;i<=8;i++)
+				{	document.write('<tr>');
+						for(var j=1;j<=8;j++)
+						{
+							if (((i%2==0)&&(j%2==0))||((i%2==1)&&(j%2==1)))
+							{
+							document.write("<td style='background-color: black;'> </td>")
+							
+							} 
+							else{
+								document.write('<td></td>');
+							}
+							
+						}
+					document.write('</tr>');
+				}
+			</script>
+		</table>-->
+		<!--<input type="" name="" id="" value="" style="background-color: black;"/>-->
+	<!--</body>
+</html>-->

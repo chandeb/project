@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	</head>
+	<body>
+	<!--<script type='text/javascript'>
+		function foo(){};
+		foo.prototype.z=3;;
+		var obj=new foo();
+		obj.x=1;
+		obj.y=2;
+		console.log(obj.x);//1
+		console.log(obj.y);//2
+		console.log(obj.z);//3
+		
+		
+	</script>-->
+	
+	<script type='text/javascript'>
+		function foo(){};
+		foo.prototype.z=3;;
+		var obj=new foo();
+		obj.x=1;
+		obj.y=2;
+		obj.name='kk';
+		obj.age=24;
+		//判断对象是否有属性
+		console.log('z' in obj);//true 对象有从原型上继承的属性z
+		console.log(obj.hasOwnProperty('y'));//true
+		console.log(obj.propertyIsEnumerable('y'))//true
+		console.log(obj.hasOwnProperty('z'));//fause对象自己本身没有属性z
+		console.log(obj.propertyIsEnumerable('z'))//fause继承的属性不能枚举
+		 console.log(Object.keys(obj));// "x,y,name,age" 返回所给对象的可枚举的自身属性的数组
+	</script>
+	
+	<!--<script type='text/javascript'>
+		var obj=Object.create({'x':1})
+		obj.y=2;
+		console.log('x' in obj);//true
+		console.log(obj.hasOwnProperty('x'));//fause 通过继承获得
+		console.log('y' in obj);//true
+		console.log(obj.hasOwnProperty('y'));//true
+		
+	</script>-->
+	
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>回调函数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function calc(a,b,c,call)
+			{
+				var i,arry=[];
+				for(i=0;i<3;i++)
+					{
+					arry[i]=call(arguments[i]*2);
+					}
+			return arry;
+			}
+			alert(calc(10,20,60,function(m){return m+2;}))
+			function add(a,b)
+			{	return a+b;
+				}
+			var params=[2,8]
+			alert(add.apply(add,params));//apply回调函数时，参数必须是数组形式
+		</script>
+	</body>
+</html>

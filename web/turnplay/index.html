@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>幻灯</title>
+	<link rel = "stylesheet" href="css/幻灯index2.css"/> //引入样式
+	<script  type="text/javascript"   src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var length;
+		var currentindex =0;
+		var interval;//时间间隔变量
+		var hasstarted = false;//是否开始轮播
+		var t=2000;//轮播时间间隔
+		length = $('.slider-panel').length;//轮播图片数量
+		$('.slider-panel:not(:first)').hide();//将第一张以外的图片隐藏
+		$('.slider-item:first').addClass('slider-item-selected');//激活第一个位置块的样式
+		$('.slider-panel').hover
+			(	function(){stop()},//鼠标悬停在图片上停止播放，离开时开始播放
+				function(){start();
+//				alert('停止后调用start');
+				}
+			);
+			
+		$('.slider-item').hover
+			(	function(){stop();//鼠标悬停在索引停止播放，索引不同，跳转图片，离开时继续播放
+							var preindex = $('.slider-item').filter('.slider-item-selected').index();
+							//正在显示的图片位置的索引
+							currentindex = $(this).index();//正在点击的索引
+							play(preindex,currentindex);},//停止播放并从当前显示的图片跳到点击索引的图片
+				function(){start()}//离开时继续播放
+			);
+		
+		
+		
+		//向后翻页
+		function next(){
+			var preindex = currentindex;
+			currentindex = ++currentindex % length;//循环获得图片索引，循环显示图片
+			play(preindex,currentindex);
+		}                 
+		/*从preIndex页翻到currentIndex页
+		 */
+		function play(preindex,currentindex){
+			$('.slider-panel').eq(preindex).fadeOut(500);
+			$('.slider-panel').eq(currentindex).fadeIn(1000);
+			$('.slider-item').removeClass('slider-item-selected');
+			$('.slider-item').eq(currentindex).addClass('slider-item-selected');
+//			alert('正在显示内容！')
+			}
+		//开始轮播
+		function start(){
+			if (!hasstarted){
+				hasstarted = true;
+				interval= setInterval(next,t);
+//				alert('开始了')
+			}
+		}
+		//停止轮播
+		function stop(){
+			clearInterval(interval);
+			hasstarted = false;
+//			alert('停止！')
+		}
+		//开始轮播
+		start();
+	});
+</script>
+	
+</head>
+<body> 
+<div class="slider"> 
+	<ul class="slider-main"> 
+ 		<li class="slider-panel"> <img  src="img/1.jpg"></li> 
+  		<li class="slider-panel"> <img  src="img/2.jpg"></li> 
+  		<li class="slider-panel"> <img  src="img/3.jpg"></li> 
+  		<li class="slider-panel"> <img  src="img/4.jpg"></li> 
+   
+ 	</ul> 
+ 	<div class="slider-extra"> 
+	  <ul class="slider-nav"> 
+		  <li class="slider-item"></li> 
+		  <li class="slider-item"></li> 
+		  <li class="slider-item"></li> 
+		  <li class="slider-item"></li> 
+	  </ul> 
+  <!--<div class="slider-page"> 
+  <a class="slider-pre" href="javascript:;;"><</a> 
+  <a class="slider-next" href="javascript:;;">></a> 
+  </div> -->
+ 	</div> 
+</div> 
+</body> 
+
+</html>

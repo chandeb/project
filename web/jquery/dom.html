@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script  type="text/javascript"  src="js/jquery-3.2.1.js"></script>
+		<style >
+			span{
+				border: 1px solid #FF0000;
+				margin: 3px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<label for="">属性操作</label><span id="atr_get">获取属性</span>
+		<span id="atr_set">修改属性</span><span id="atr_del">删除属性</span>
+		<div id="img_src"><img src="img/login.PNG"/></div>
+		<br />
+		<br />
+		<br />
+		<label for="">节点内容的获取</label>
+			<span id="node_html">html:</span>
+			<span id="node_text">text:</span>
+			<span id="node_val">val:</span>
+			<div id="get_html"><h5>HTML文本</h5></div>
+			<div id="get_text"><h5>text文本</h5></div>
+			<input type="text" id='get_val' value="添加文字"/>
+			
+		<br />
+		<br />
+		<label for="">文档操作展示：</label>
+		<span id="dom_add">back追加[append]</span>
+		<span id="dom_preadd">fre追加[preppend]</span>
+		<span id="dom_toadd">追加到[appendTo]</span>
+		<span id="dom_pretoadd">前面追加到[preppendTo]</span>
+		<div id="fabao">
+			<ul>
+				<li>追妹子法宝：</li>
+				<li>坚持：</li>
+				<li>不要脸：</li>
+				<li>坚持不要脸：</li>
+			</ul>
+		</div>	
+		<br />
+		<br />
+		<span id="dom_after">back追加[after]</span>
+		<span id="dom_before">fre追加[befoere]</span>
+		<span id="dom_insertAfter">追加到[insertAfter]</span>
+		<span id="dom_insertBefore">前面追加到[insertBefore]</span>
+		<div id="salary">
+			<ul>
+				<li>boss?</li>
+				<li>涨工资吗？</li>
+				
+			</ul>
+		<br />
+		<br />
+		<span id="dom_wrap">包裹[wrap]</span>
+		<span id="dom_unwrap">去掉包裹[unwrap]</span>
+		<div id="baoguo"> 
+			<p>hello</p>
+			<p>girl</p>
+			
+		</div>
+		<br />
+		<br />
+		<span id="dom_empty">清空</span>
+		<span id="dom_remove">删除</span>
+		<span id="dom_clone">复制</span>
+		<<div id="shan">
+			<ul>
+				<li id="node_empty">empty</li>
+				<li id="node_remove">remove</li>
+				<li id="node_clone">clone</li>
+				
+			</ul>
+		</div>
+		<br />
+		<br />
+		<style>
+			.jingshan{color: blue;}
+		</style>
+		<span id="dom_addClass">新增class</span>
+		<span id="dom_removeClass">删除class</span>
+		<span id="dom_toggleClass">反复</span>
+		<div id="dom_class">展示区域</div>
+		
+	</body>
+	<script>
+		$(function(){
+//			attr属性操作  获取、修改、删除
+			$('#atr_get').click(function(){//第一个#接触发扳机
+				alert($('#img_src img').attr('src'));//第二个#接目标区域
+			});
+			$('#atr_set').click(function(){
+				$('#img_src img').attr('src','img/window.PNG');
+			});
+			$('#atr_del').click(function(){
+				$('#img_src img').removeAttr('src');
+			});
+			
+			//html\text\val
+			$('#node_html').click(function(){
+				alert($('#get_html').html());
+			});
+			$('#node_text').click(function(){
+				alert($('#get_text').text());
+			});
+			$('#node_val').click(function(){
+				alert($('#get_val').val());
+			});
+			//设置 html\text\val
+			$('#node_html').click(function(){
+				$('#get_html').html('<strong>man</strong>');
+			});
+			$('#node_text').click(function(){
+				$('#get_text').text('man');
+			});
+			$('#node_val').click(function(){
+				$('#get_val').val('获取添加的值');
+			});
+			//文档处理  append appendTo 追加在选择内容内部
+			$('#dom_add').click(function(){
+				$('#fabao ul').append('<li>有没有第四条</li>');
+			});
+			$('#dom_preadd').click(function(){
+				$('#fabao ul').prepend('<li>弱弱的问一下</li>');
+			});
+			$('#dom_toadd').click(function(){
+//				$('#fabao ul').append('<li>有没有第四条</li>');
+				$('<li>有没有第四条</li>').appendTo('#fabao ul');
+			});
+			$('#dom_pretoadd').click(function(){
+				$('<li>弱弱的问一下</li>').prependTo('#fabao ul');
+			});
+			
+			
+			//文档处理  after before  追加在选择内容的外边
+			$('#dom_after').click(function(){
+				$('#salary').append('<li>这个可以有！</li>');
+			});
+			$('#dom_before').click(function(){
+				$('#salary').prepend('<li>谈一下呗</li>');
+			});
+			$('#dom_insertAfter').click(function(){
+//				$('#fabao ul').append('<li>有没有第四条</li>');
+				$('<li>这个可以有！</li>').insertAfter('#salary');
+			});
+			$('#dom_insertBefore').click(function(){
+				$('<li>谈一下呗</li>').insertBefore('#salary');
+			});
+			
+			//文档处理  wrap unwrap
+			$('#dom_wrap').click(function(){
+				$('#node_empty ').wrap('<div style="color:#FF0000"></div');
+			});
+			$('#dom_unwrap').click(function(){
+				$('#baoguo p').unwrap('<div style="color:#FF0000"></div');
+			});
+			
+			
+			//文档处理 empty\remove\clone
+			$('#dom_empty').click(function(){
+				$('#node_empty').empty();
+			});
+			$('#dom_remove').click(function(){
+				$('#node_remove').remove();
+			});
+			$('#dom_clone').click(function(){
+				alert($('#node_clone').clone().html());
+			});
+			
+			//CSS操作
+			$('#dom_addClass').click(function(){
+				$('#dom_class').addClass('jingshan');
+			});
+			$('#dom_removeClass').click(function(){
+				$('#dom_class').removeClass('jingshan');
+			});
+			$('#dom_toggleClass').click(function(){
+				$('#dom_class').toggleClass('jingshan');
+			});
+			
+			
+			
+		});
+	</script>
+</html>

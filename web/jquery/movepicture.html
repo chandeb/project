@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<script  type="text/javascript"  src="js/jquery-3.2.1.js"></script>	
+	<style>
+		*{
+			margin: 0px;padding: 0px;
+			
+		}
+		body{
+			text-align: center;
+			
+		}
+		.main{
+			width: 760px;
+			margin: 0 auto;
+			background-color: #007777;
+			
+		}
+		.button{
+			padding: 10px;
+			
+		}
+		.button span{
+			margin: 0px 8px;
+			padding: 0px;
+			border: 1px solid #0000FF;
+			cursor: pointer;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="main">
+		<div class='button'>
+			<span id="show">显示</span>
+			<span id="hide">隐藏</span>
+			<span id="toggle">反复</span>
+			<span id="slideup">向上</span>
+			<span id="slidedown">向下</span>
+			<span id="slidetoggle">反复滑动</span>
+			<span id="fadein">淡入</span>
+			<span id="fadeout">淡出</span>
+			<span id="fadetoggle">fadetoggle</span>
+			<span id="fadeto">淡入到指定位置</span>
+		</div>
+	</div>
+	<div class="main">
+		<div class="pic">
+			<img src="img/1.jpg" />
+		</div>
+	</div>
+	<br />
+	<br />
+	
+	
+	
+	<div class="main">
+		<div class="button">
+			<span id="animate">动画</span>
+			<div class="pic2">
+				<img src="img/2.jpg" />
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(function(){
+//		alert('it work!')
+		//显示、隐藏、反复
+		$("#show").click(function(){
+			$(".pic").show();
+		});
+		$("#hide").click(function(){
+			$(".pic").hide();
+		});
+		$("#toggle").click(function(){
+			$(".pic").toggle();
+		});
+		//上下滑动
+		$("#slideup").click(function(){
+			$(".pic").slideUp();
+		});
+		$("#slidedown").click(function(){
+			$(".pic").slideDown();
+		});
+		$("#slidetoggle").click(function(){
+			$(".pic").slideToggle();
+		});
+		//淡入淡出
+		$("#fadein").click(function(){
+			$(".pic").fadeIn();
+		});
+		$("#fadeout").click(function(){
+			$(".pic").fadeOut();
+		});
+		$("#fadetoggle").click(function(){
+			$(".pic").fadeToggle();
+		});
+		$("#fadeto").click(function(){
+			$(".pic").fadeTo('slow',0.5);
+		});
+		//animate
+		$("#animate").click(function(){//                         速度
+			$(".pic2 img").animate({height:'100px',opacity:'0.5'},'2000');
+		});
+	});
+</script>
+</html>

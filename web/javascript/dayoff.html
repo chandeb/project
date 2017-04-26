@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+<!--页面显示部分：-->
+<p>点击下面的按钮，会显示出基于今日日期的消息：</p>
+<button onclick="myFunction()">点击这里</button>
+<p id="demo"></p><!--demo站位，用于显示输出结果-->
+
+<!--script语句-->
+<!--<script>
+function myFunction()
+{
+	var x;
+	var d=new Date().getDay();
+	switch (d)
+    {
+  		case 6:x="今天是星期六";
+    	break;
+  		case 0:x="今天是星期日";
+    	break;
+  		default:
+    	x="期待周末";
+  	}
+	document.getElementById("demo").innerHTML=x;//当前页面显示，获取demo的ID，并把demo的值全部替换为x
+    document.write(x)  //跳转新页面显示
+}
+</script>-->
+<script type="text/javascript">  
+     function co(){   
+    var table = document.getElementById("tab");
+    var len = table.rows.length;
+    var _row = table.rows;
+    for(var i = 0;i < len;i++){
+       var _cell = _row[i].cells;
+       var d=_cell[3].innerHTML;
+       if(d<3){
+        table.rows[i].style.backgroundColor = "blue";
+        }
+       else if(d<18){
+        table.rows[i].style.backgroundColor = "red";
+        }
+      else{
+        table.rows[i].style.backgroundColor = "yellow";
+        }
+       }
+    }
+    </script> 
+
+</body>
+</html>

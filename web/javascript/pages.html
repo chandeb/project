@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--{"name":"jack"，"age":12}
+
+student_list = []
+
+page_size = 5 //每一页有多少条记录
+rows_count = 13 //一共多少条记录
+page_count = ? //计算而来
+page_index = 0/1 //第几页-->
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel = "stylesheet" href="pages.css"/>
+	</head>
+	
+	<body>
+		<div class="info" align="center" >
+			<form>共13条信息     共3页    每页<input id="rowsnum" type="text" size="1" value="" >条信息  <button type="button" onclick="firstpage()">首页<button type="button" onclick="endpage()">尾页<button type="button" onclick="frepage()">上一页<button type="button" onclick="nextpage()">下一页</form>
+		</div>
+			
+			
+		<table width="360" height="50" valign="top" align="center" frame="box" rules="all">
+			<caption >学生信息</caption>
+				<thead>
+					<th>姓名</th>
+				    <th>年龄</th>
+				</thead>
+				<tbody id="tbody"></tbody>
+
+				
+		</table>
+				<script type="application/javascript">
+				
+				var people=[
+				{name:'nick',age:12},
+				{name:'jack',age:15},
+				{name:'tony',age:12},
+				{name:'sundy',age:16},
+				{name:'cendy',age:12},
+				{name:'wangyi',age:19},
+				{name:'liuda',age:17},
+				{name:'jdy',age:12},
+				{name:'hemry',age:14},
+				{name:'feudi',age:12},
+				{name:'jkkk',age:16},
+				{name:'gthbn',age:12},
+				{name:'gt',age:16}
+				]
+				
+				
+				function firstpage()
+				{	
+					var rowsnum=document.getElementById("rowsnum").value;
+					// Get tbody 追加表格
+					var tbody = document.getElementById("tbody");
+					tbody.innerHTML='';
+					alert('每行信息数：'+rowsnum);
+					for(var i=0;i<rowsnum;i++)
+						{	
+							var tr = document.createElement("tr");
+							var innerHtml = '<td>'+people[i].name+'</td><td>'+people[i].age+'</td>';
+							tr.innerHTML  = innerHtml;
+							tbody.appendChild(tr);
+						}
+					currentpage=1;
+					alert('当前页数：'+currentpage);
+				}
+				function endpage()
+				{	var rowsnum=document.getElementById("rowsnum").value;
+					var pages=Math.ceil(people.length/rowsnum);//页数向上取整
+					var startrows=(pages-1)*rowsnum;//
+					var endrows=rowsnum;//默认尾页铺满
+					if (people.length%rowsnum!==0){//尾页信息条数
+						endrows=people.length%rowsnum
+					}
+					
+					// Get tbody
+					var tbody = document.getElementById("tbody");
+					tbody.innerHTML='';
+					
+					for(var i=startrows;i<startrows+endrows;i++)
+						{	
+							var tr = document.createElement("tr");
+							
+							var innerHtml = '<td>'+people[i].name+'</td><td>'+people[i].age+'</td>';
+							tr.innerHTML  = innerHtml;
+							tbody.appendChild(tr);
+						}
+						currentpage=pages;
+						alert('尾页数：'+currentpage);
+				}
+				function nextpage()
+				{	var rowsnum=document.getElementById("rowsnum").value;
+					var pages=Math.ceil(people.length/rowsnum);//页数向上取整
+					var startrows=(pages-1)*rowsnum;//
+					var endrows=rowsnum;//默认尾页铺满
+					if (people.length%rowsnum!==0){//尾页信息条数
+						endrows=people.length%rowsnum
+					}
+					// Get tbody
+					var tbody = document.getElementById("tbody");
+					tbody.innerHTML='';
+					if (currentpage==pages-1)
+					{//下一页是尾页
+						alert('下一页是尾页');
+//						tbody.innerHTML=tbody.endpage();
+						for(var i=currentpage*rowsnum;i<currentpage*rowsnum+endrows;i++)
+							{	
+								var tr = document.createElement("tr");
+								
+								var innerHtml = '<td>'+people[i].name+'</td><td>'+people[i].age+'</td>';
+								tr.innerHTML  = innerHtml;
+								tbody.appendChild(tr);
+							}
+							currentpage+=1;
+							alert('现在是第'+currentpage+'页');
+					}
+					else//下一页不是尾页的情况
+					{
+						for(var i=currentpage*rowsnum;i<(currentpage+1)*rowsnum;i++)
+						{	
+							var tr = document.createElement("tr");
+							
+							var innerHtml = '<td>'+people[i].name+'</td><td>'+people[i].age+'</td>';
+							tr.innerHTML  = innerHtml;
+							tbody.appendChild(tr);
+						}
+						currentpage+=1;
+						alert('现在是第'+currentpage+'页');
+					}
+				}
+				function frepage()
+				{	var rowsnum=document.getElementById("rowsnum").value;
+					
+					// Get tbody
+					var tbody = document.getElementById("tbody");
+					tbody.innerHTML='';
+					for(var i=(currentpage-2)*rowsnum;i<(currentpage-1)*rowsnum;i++)
+						{	
+							var tr = document.createElement("tr");
+							
+							var innerHtml = '<td>'+people[i].name+'</td><td>'+people[i].age+'</td>';
+							tr.innerHTML  = innerHtml;
+							tbody.appendChild(tr);
+						}
+						currentpage-=1;
+						alert('现在是第'+currentpage+'页')
+						
+				}
+				
+				
+				
+			</script>
+		
+	</body>
+</html>

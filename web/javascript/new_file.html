@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="info" align="center" >
+			<form>共13条信息     共3页    每页<input id="rowsnum" type="text" size="1" value="" >条信息  <button type="button" onclick="firstpage()">首页<button type="button" onclick="endpage()">尾页<button type="button" onclick="frepage()">上一页<button type="button" onclick="nextpage()">下一页</form>
+		</div>
+		<script>
+			
+			function firstpage(){
+				var rowsnum=document.getElementById("rowsnum").value;
+				alert(rowsnum);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

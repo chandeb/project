@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script  type="text/javascript"  src="js/jquery-3.2.1.js"></script>
+	</head>
+	<body style="height: 1000px;padding:300px">
+		
+		<span>resize次数：</span><span id='time'>0</span>
+		<span>scroll次数：</span><span id='time'>0</span>
+		<lable for="" id="click1">点击标签</lable>
+		<lable for="" id="hover1">悬停标签</lable>
+		<input type="text" id="input2" name="maizi" placeholder="输入keyup"/>
+		<input type="text" id="input3" name="maizi" placeholder="输入keydown"/>
+		<input type="text" id="input4" name="maizi" placeholder="输入keypress"/>
+		<input type="text" id="input1" name="maizi" placeholder="输入"/>
+		<br />
+		<span id="t_on">on 的点击事件</span><br />
+		<span id="t_bind">bind的点击事件</span><br />
+		<span id="t_trigger">trigger 的点击事件</span><br />
+	
+			
+		
+	</body>
+	<script>
+//		浏览器事件
+		$(window).resize(function(){
+			$('#time').text(parseInt($('#time').text())+1);
+		});
+		$(window).scroll(function(){
+			$('#time').text(parseInt($('#time').text())+1);
+		});
+		
+		$(function(){
+			//鼠标点击事件
+			$("#click1").click(function(){
+				alert('已点击！')
+			});
+			$("#hover1").hover(function(){
+				alert('已悬停！');
+			},
+			function(){
+				alert('已移开')
+			}
+			);
+			//键盘事件
+			$('#input1').blur(function(){
+				alert('blur事件');
+			});
+			$('#input1').focus(function(){
+				alert('focus事件');
+			});
+			$('#input2').keyup(function(){
+				alert('keyup事件');
+			});
+			$('#input3').keydown(function(){
+				alert('keydown事件');
+			});
+			$('#input4').keypress(function(){
+				alert('keypress事件');
+			});
+			$('#t_on').on('click',function(){
+				alert('on click事件');
+			});
+			$('#t_bind').bind('click',function(){
+				alert('bind click事件');
+			});
+			$('#t_trigger').click(function(){
+				alert('trigger click事件');
+				$('#t_on').trigger('click')
+			});
+			
+		})
+	</script>
+</html>

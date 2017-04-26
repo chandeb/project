@@ -1,0 +1,17 @@
+body{
+    font:16px "微软雅黑";
+}
+.tr_css{
+	width: 26px;
+}
+.info{
+	position: absolute;
+	left: 760px;
+	top: 220px;
+	background-color: cadetblue;
+	
+}
+.td_css{
+	height: 20px;
+	
+}

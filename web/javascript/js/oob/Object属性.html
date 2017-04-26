@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var obj={};
+			Object.defineProperty(obj,'x',{value:6});/*定义时属性的三个特性默认为false*/
+			console.log(obj.x);//6
+			obj.x=20;
+			console.log(obj.x);//6
+			
+			
+			Object.defineProperty(obj,'y',{
+				value:56,
+				writable:true,//可写
+				enumerable:true,//可枚举
+				configurable:false,
+			});
+			console.log(obj.y);//56
+			obj.y=77;
+			console.log(obj.y);//77
+			console.log(Object.keys(obj));//输出可枚举的属性 y
+			Object.defineProperty(obj,'z',{
+				value:'this is a test',
+				writable:true,
+				enumerable:true,
+				configurable:false,//不可配置，删除无法
+				
+			})
+			console.log(obj.z);//this is a test
+			obj.z='hello';
+			console.log(obj.z);//hello
+			delete obj.z;
+			console.log(obj.z);//hello
+			
+			
+			
+			Object.defineProperty(obj,'k',{
+				value:8,
+				writable:false,
+				enumerable:false,
+				configurable:true,//可配置   -------将不可写改为可写,不可枚举改为可枚举
+			})
+				obj.k=10;
+				console.log(obj.k)//8
+				Object.defineProperty(obj,'k',{
+					writable:true,//-----------不可写改为可写
+					enumerable:true,//---------改为可枚举
+				});
+				obj.k=24;
+				console.log(obj.k)//24
+				console.log(obj.propertyIsEnumerable('k'));//true
+				
+					
+				
+				
+				
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script  type="text/javascript"  src="js/jquery-3.2.1.js"></script>	
+	<title></title>
+</head>
+<body>
+	<!--<span id="cla1">我需要阳光</span>
+	<div id="dis"></div>-->
+	<label for=''>get方式获取 手机信息</label>
+	<div>手机：<input type="text" name="phone" id="phonenumbur" placeholder="请输入手机号"</div>
+	<div>
+		<span id="get_msg">获取的信息显示:</span>
+		<br />
+		<span id="get_msgdo">点击获取</span>
+	</div>
+</body>
+<script>
+$(function()
+{
+//		alert('it work!');
+//	$('#cla1').click(function(){
+//		$('#dis').load('https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1696438762,697927561&fm=170&s=C1FB30C4AE26233EF2059D990300C011&w=640&h=400&img.JPEG')
+//	})
+	$('#get_msgdo').click(function()
+							{
+								var id1=$('#phonenumbur').val();
+								var url='http://maizi.itpaimai.com/jquery/get/';
+								var data={phone:id1};
+								$.get(url,data,function(msg)
+												{
+													if(msg.errNum=='-1')
+														{
+										                    $("#get_msg").text(msg.retMsg);
+										                }else
+										                {
+										                    $("#get_msg").text(msg.retData.supplier+':'+msg.retData.province+msg.retData.city+':'+msg.retData.suit);
+										                }
+						               
+							
+												},'jsonp');//jsonp 跨域   post请求时不跨域   类型：json
+							});
+});
+</script>
+</html>
